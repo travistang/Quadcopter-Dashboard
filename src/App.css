@@ -35,7 +35,7 @@
 }
 .ThrustSectionContainer {
   display:flex;
-  flex-direction: column-reverse;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   height: 40vh;
