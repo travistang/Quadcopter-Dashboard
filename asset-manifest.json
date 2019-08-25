@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Quadcopter-Dashboard/static/css/main.583f192c.chunk.css",
+    "main.css": "/Quadcopter-Dashboard/static/css/main.0ad5f67e.chunk.css",
     "main.js": "/Quadcopter-Dashboard/static/js/main.3704454c.chunk.js",
     "main.js.map": "/Quadcopter-Dashboard/static/js/main.3704454c.chunk.js.map",
     "runtime~main.js": "/Quadcopter-Dashboard/static/js/runtime~main.cec31562.js",
@@ -8,8 +8,8 @@
     "static/js/2.73f3f63d.chunk.js": "/Quadcopter-Dashboard/static/js/2.73f3f63d.chunk.js",
     "static/js/2.73f3f63d.chunk.js.map": "/Quadcopter-Dashboard/static/js/2.73f3f63d.chunk.js.map",
     "index.html": "/Quadcopter-Dashboard/index.html",
-    "precache-manifest.f817cfeded2d64c8964e918b100a0ab9.js": "/Quadcopter-Dashboard/precache-manifest.f817cfeded2d64c8964e918b100a0ab9.js",
+    "precache-manifest.a1dc43f9bab202ca3d201a058bf96133.js": "/Quadcopter-Dashboard/precache-manifest.a1dc43f9bab202ca3d201a058bf96133.js",
     "service-worker.js": "/Quadcopter-Dashboard/service-worker.js",
-    "static/css/main.583f192c.chunk.css.map": "/Quadcopter-Dashboard/static/css/main.583f192c.chunk.css.map"
+    "static/css/main.0ad5f67e.chunk.css.map": "/Quadcopter-Dashboard/static/css/main.0ad5f67e.chunk.css.map"
   }
 }
