@@ -1,11 +1,78 @@
-.App {
-  text-align: center;
+.ServerURLInputField {
+  /* color: white; */
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  border-color: white !important;
+  margin-left: 8px;
+  margin-right: 8px;
+  /* color: white; */
+}
+.ServerURLInputField:focus {
+  border-color: white !important;
+}
+.Toolbar {
+  align-items:   center;
+}
+.ControlPanel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  padding: 8px;
+}
+.ControlPanelInner {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.ControlPanelSection {
+  display:flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  flex: 1;
+  height: 100%;
+  padding: 8px;
+}
+.ThrustSectionContainer {
+  display:flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+}
+
+.AppContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#root {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 32px;
+  padding-top: 0px;
+}
+
+.PlotCard {
+  max-height: 35vh;
+  flex: 3;
+}
+
+.Row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .App-header {

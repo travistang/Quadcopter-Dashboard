@@ -1,0 +1,17 @@
+.PIDPanel {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.PIDPanel-hidden {
+  display: none;
+}
+
+.PIDField {
+  flex: 1;
+}
+
+.PIDApplyBtn {
+  flex: 1;
+}
