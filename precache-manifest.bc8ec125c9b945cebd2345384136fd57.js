@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5fb510ed1d43392058ff6f856fba31cc",
+    "revision": "71bd4e85097d260f23300025896515b9",
     "url": "/Quadcopter-Dashboard/index.html"
   },
   {
-    "revision": "ab4ce5decaedb7d4c221",
+    "revision": "abc247eb9176a174c4ba",
     "url": "/Quadcopter-Dashboard/static/css/main.afdb5772.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Quadcopter-Dashboard/static/js/2.73f3f63d.chunk.js"
   },
   {
-    "revision": "ab4ce5decaedb7d4c221",
-    "url": "/Quadcopter-Dashboard/static/js/main.b5df2e15.chunk.js"
+    "revision": "abc247eb9176a174c4ba",
+    "url": "/Quadcopter-Dashboard/static/js/main.7e7f01ec.chunk.js"
   },
   {
     "revision": "e582abec322924c83f62",
