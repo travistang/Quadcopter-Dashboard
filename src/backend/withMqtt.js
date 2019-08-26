@@ -19,6 +19,7 @@ export default function(WrappedComponent, serverAddress, clientId) {
       this.client.on('connect', this.onConnect.bind(this))
       this.client.on('message', this.onMessage.bind(this))
     }
+
     constructor(props) {
       super(props)
 
@@ -34,10 +35,12 @@ export default function(WrappedComponent, serverAddress, clientId) {
         datasets: 'x,y,z'.split(',').map((label, i) => this.makeDataset(label, i)),
         labels: []
       }
+
       this.gyroData = {
         datasets: 'x,y,z'.split(',').map((label, i) => this.makeDataset(label, i)),
         labels: []
       }
+
       this.estimatedAngle = {
         datasets: 'x,y,z'.split(',').map((label, i) => this.makeDataset(label, i)),
         labels: []
@@ -141,6 +144,7 @@ export default function(WrappedComponent, serverAddress, clientId) {
           setPIDValue={this.sendPIDValue.bind(this)}
           sendRecalibrateGyro={this.sendRecalibrateGyro.bind(this)}
           sendGyroAcclRatio={this.sendGyroAcclRatio.bind(this)}
+          sendTargetPose={this.sendTargetPose.bind(this)}
           initializeClient={this.initializeClient.bind(this)}
           {...this}
           {...this.state}
