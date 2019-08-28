@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Quadcopter-Dashboard/precache-manifest.5a035818b1db1095373290f0de780277.js"
+  "/Quadcopter-Dashboard/precache-manifest.3079e68d273c14a165caa723adfb8f36.js"
 );
 
 self.addEventListener('message', (event) => {

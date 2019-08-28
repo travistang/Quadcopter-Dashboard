@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Quadcopter-Dashboard/static/css/main.b61702fd.chunk.css",
-    "main.js": "/Quadcopter-Dashboard/static/js/main.48d973cd.chunk.js",
-    "main.js.map": "/Quadcopter-Dashboard/static/js/main.48d973cd.chunk.js.map",
+    "main.js": "/Quadcopter-Dashboard/static/js/main.690e3eb5.chunk.js",
+    "main.js.map": "/Quadcopter-Dashboard/static/js/main.690e3eb5.chunk.js.map",
     "runtime~main.js": "/Quadcopter-Dashboard/static/js/runtime~main.cec31562.js",
     "runtime~main.js.map": "/Quadcopter-Dashboard/static/js/runtime~main.cec31562.js.map",
     "static/js/2.05b900f5.chunk.js": "/Quadcopter-Dashboard/static/js/2.05b900f5.chunk.js",
     "static/js/2.05b900f5.chunk.js.map": "/Quadcopter-Dashboard/static/js/2.05b900f5.chunk.js.map",
     "index.html": "/Quadcopter-Dashboard/index.html",
-    "precache-manifest.5a035818b1db1095373290f0de780277.js": "/Quadcopter-Dashboard/precache-manifest.5a035818b1db1095373290f0de780277.js",
+    "precache-manifest.3079e68d273c14a165caa723adfb8f36.js": "/Quadcopter-Dashboard/precache-manifest.3079e68d273c14a165caa723adfb8f36.js",
     "service-worker.js": "/Quadcopter-Dashboard/service-worker.js",
     "static/css/main.b61702fd.chunk.css.map": "/Quadcopter-Dashboard/static/css/main.b61702fd.chunk.css.map"
   }
