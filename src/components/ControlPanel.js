@@ -9,18 +9,23 @@ export default class ControlPanel extends React.Component {
     super(props)
     this.state = {
       totalThrust: 0.0,
-      pidPanel: 0,
       gyroAccelRatio: 0.98
     }
+    this.last_thrust_sent = new Date()
   }
   resetBaseThrust() {
     this.setState({ totalThrust: 0.0 }, () => {
       this.props.sendBaseThrust && this.props.sendBaseThrust(this.state.totalThrust)
     })
   }
-  publishBaseThrust() {
-    const { totalThrust } = this.state
-    this.props.sendBaseThrust && this.props.sendBaseThrust(totalThrust)
+  publishBaseThrust(evt, thrust) {
+    const now = new Date()
+    this.setState({ totalThrust: thrust })
+    // send with throttle..
+    if ((now - this.last_thrust_sent) > 200) {
+      this.props.sendBaseThrust && this.props.sendBaseThrust(thrust)
+      this.last_thrust_sent = now
+    }
   }
   publishGyroAccelRatio() {
     const { gyroAccelRatio } = this.state
@@ -51,12 +56,11 @@ export default class ControlPanel extends React.Component {
           </div>
 
           <div className="ThrustSectionContainer">
-            <Typography>Thrust</Typography>
+            <Typography>Thrust: {this.state.totalThrust.toFixed(3)}</Typography>
             <br />
             <Slider orientation="vertical"
               aria-label="Thrust"
-              onChange={(_, v) => this.setState({ totalThrust: v})}
-              onChangeCommitted={this.publishBaseThrust.bind(this)}
+              onChange={this.publishBaseThrust.bind(this)}
               value={this.state.totalThrust}
               max={1} min={0} step={1e-3}
             />

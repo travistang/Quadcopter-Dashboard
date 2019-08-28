@@ -1,51 +1,86 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
+import Slider from '@material-ui/core/Slider';
+import debounce from '../../backend/debounce'
+import Button from '@material-ui/core/Button';
+import PowerPreviewGraph from './PowerPreviewGraph';
+import "./style.css";
 
-export default class PIDPanel extends React.Component {
+class PIDPanel extends React.Component {
   constructor(props) {
     super(props);
 
-    this.pidValue = {
-      p: 0,
-      i: 0,
-      d: 0
+    this.state = {
+      showPowerGraph: false,
+      pidValue: {
+        p: 0,
+        i: 0,
+        d: 0
+      }
     }
-
   }
 
-  setPIDValue(l, e) {
-    const v = e.target.value
-    this.pidValue[l] = parseFloat(v)
-    if(Object.values(this.pidValue).some(isNaN)) {
-      console.log(this.pidValue, "is not valida")
-      return // do not set the value here
-    }
-    this.props.onPIDValueChange(this.pidValue)
-
+  setPIDValue(l, e, v) {
+    this.props.debounce(
+      () => {
+        this.setState({ pidValue: {...this.state.pidValue, [l]: v}})
+        this.props.onPIDValueChange(this.state.pidValue)
+      }
+    )
   }
+
   getClassName() {
     const { hidden } = this.props
     if(hidden) return "PIDPanel PIDPanel-hidden"
     else return "PIDPanel"
   }
-  /*
-  <TextField label="hi" fullWidth={true} ></TextField>
-
-  */
+  togglePowerGraph() {
+    this.setState({ showPowerGraph: !this.state.showPowerGraph})
+  }
   render() {
+    const { showPowerGraph } = this.state
     return (
-      <div className="PIDPanel" style={this.props.hidden?{display: 'none'}:{}}>
-        {
-          'p,i,d'.split(',').map(lbl => (
-            <TextField
-                label={lbl.toUpperCase()}
-                fullWidth={true}
-                error={isNaN(parseFloat(this.pidValue[lbl]))}
-                onChange={this.setPIDValue.bind(this, lbl)}
-              />
-          ))
-        }
+      <div className="PIDPanelWrapper">
+        <div className="PIDPanel" style={this.props.hidden?{display: 'none'}:{}}>
+          {
+            !showPowerGraph?(
+              'p,i,d'.split(',').map(lbl => (
+                <div className="">
+                  {`${lbl.toUpperCase()}: ${this.state.pidValue[lbl].toFixed(2)}`}
+                  <Slider aria-label={lbl.toUpperCase()}
+                    value={this.state.pidValue[lbl]}
+                    onChange={this.setPIDValue.bind(this, lbl)}
+                    min={0} max={1} step={1e-2}
+                  />
+                </div>
+              ))
+            ): (
+              <PowerPreviewGraph
+                min={-20}
+                max={20}
+                baseThrust={this.props.baseThrust}
+                pidValue={this.state.pidValue} />
+            )
+          }
+          <div className="PIDActionButtonGroup">
+            {
+              !showPowerGraph && ([
+                <Button color="secondary">
+                  Set as default
+                </Button>,
+                <Button>
+                  Reset
+                </Button>
+              ])
+            }
+            <Button onClick={this.togglePowerGraph.bind(this)}>
+              {showPowerGraph?"Tune PID Value":"Graph"}
+            </Button>
+          </div>
+        </div>
       </div>
+
     )
   }
 }
+
+export default debounce(PIDPanel, 200)

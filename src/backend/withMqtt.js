@@ -15,7 +15,7 @@ export default function(WrappedComponent, serverAddress, clientId) {
       if(this.client) {
         this.client.end(true)
       }
-      this.client = connect(`wss://${serverAddress}:1883`, clientId)
+      this.client = connect(`ws://${serverAddress}:1883`, clientId)
       this.client.on('connect', this.onConnect.bind(this))
       this.client.on('message', this.onMessage.bind(this))
     }

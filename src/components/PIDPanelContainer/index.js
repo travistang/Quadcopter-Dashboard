@@ -31,6 +31,7 @@ export default class PIDPanelContainer extends React.Component {
           PID_PANELS.map(lbl => (
             <PIDPanel
               key={`${lbl}-panel`}
+              baseThrust={this.props.baseThrust}
               onPIDValueChange={value => this.props.setPIDValue(lbl, value)}
               axis={lbl} hidden={lbl !== PID_PANELS[this.state.pidPanel]}/>
           ))

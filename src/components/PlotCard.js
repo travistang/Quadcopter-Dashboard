@@ -11,6 +11,10 @@ export default class PlotCard extends React.Component {
   }
   getChartOptions() {
     return {
+      title: {
+          display: true,
+          text: 'Estimated Angle (degrees)'
+      },
       elements: {
           line: {
               tension: 0

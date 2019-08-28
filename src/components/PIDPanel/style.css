@@ -1,7 +1,11 @@
+.PIDPanelWrapper {
+  /* height: 40vh; */
+}
 .PIDPanel {
   display: flex;
+  height: 100%;
   flex-direction: column;
-  padding: 16px;
+  /* padding: 16px; */
 }
 
 .PIDPanel-hidden {
@@ -14,4 +18,17 @@
 
 .PIDApplyBtn {
   flex: 1;
+}
+.PIDInputGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.PowerPreviewGraph {
+  flex: 1;
+}
+.PIDActionButtonGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

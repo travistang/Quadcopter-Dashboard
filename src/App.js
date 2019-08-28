@@ -13,11 +13,23 @@ import Chip from '@material-ui/core/Chip';
 import Joystick from './components/Joystick';
 import TextField from '@material-ui/core/TextField';
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      baseThrust: 0.0
+    }
+  }
+
+  sendBaseThrust(thrust) {
+    this.setState({ baseThrust: thrust})
+    this.props.sendBaseThrust && this.props.sendBaseThrust(thrust)
+  }
   changeServerAddress() {
     const addr = document.getElementById('serverAddressInput').value
     console.log("using address", addr)
     this.props.initializeClient && this.props.initializeClient(addr)
   }
+
   render() {
     return (
         <div className="AppContainer">
@@ -55,14 +67,16 @@ class App extends React.Component {
           <div className="App">
             <div className="Row">
               <PlotCard title="Combined Angle Estimate" data={this.props.estimatedAngle} />
-              <PIDPanelContainer setPIDValue={this.props.setPIDValue} />
+              <PIDPanelContainer
+                baseThrust={this.state.baseThrust}
+                setPIDValue={this.props.setPIDValue} />
             </div>
             <div className="Row">
               <Joystick sendTargetPose={this.props.sendTargetPose}/>
               <MotorPowerGraph motorPower={this.props.motorPower} />
               <ControlPanel
                 setPIDValue={this.props.setPIDValue}
-                sendBaseThrust={this.props.sendBaseThrust}
+                sendBaseThrust={this.sendBaseThrust.bind(this)}
                 publishGyroAccelRatio={this.props.sendGyroAcclRatio}
                 sendRecalibrateGyro={this.props.sendRecalibrateGyro}
               />
